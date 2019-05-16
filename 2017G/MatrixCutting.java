@@ -26,10 +26,10 @@ class MatrixCutting {
 		if (dp.containsKey(ft)) return dp.get(ft)[0];
 		int min = getMin(ft);
 		int curMax = min;
-		for (int i = ft.rStart; i < ft.rEnd; i++) {
-			for (int j = ft.cStart; j < ft.cEnd; j++) {
-				int cur = solve_large(new FourTuple(ft.rStart, i, ft.cStart, j), dp);
-				cur += solve_large(new FourTuple(ft.rStart, i, j + 1, ft.cEnd), dp);
+		for (int i = ft.rStart; i <= ft.rEnd; i++) {
+			for (int j = ft.cStart; j <= ft.cEnd; j++) {
+				int cur = (i == rEnd ? 0 : solve_large(new FourTuple(ft.rStart, i, ft.cStart, j), dp));
+				cur += (i == rEnd ? 0 : solve_large(new FourTuple(ft.rStart, i, j + 1, ft.cEnd), dp));
 				cur += solve_large(new FourTuple(i + 1, ft.rEnd, j + 1, ft.cEnd), dp);
 				cur += solve_large(new FourTuple(i + 1, ft.rEnd, ft.cStart, j), dp);
 
