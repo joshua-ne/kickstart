@@ -9,6 +9,10 @@ class Jren {
 		System.out.println(s);
 	}
 
+	static void p(long s) {
+		System.out.println(s);
+	}
+
 	static void p() {
 		System.out.println();
 	}
